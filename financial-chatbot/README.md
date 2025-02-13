@@ -71,6 +71,12 @@ financial-chatbot/
 └── README.md               # Project documentation
 ```
 
+## Limitations
+
+- The chatbot only supports a limited set of predefined queries.
+- Responses are static and based on canned data.
+- Does not support natural language processing (NLP) or dynamic queries.
+    
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
