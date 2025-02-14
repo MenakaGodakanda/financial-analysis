@@ -16,14 +16,14 @@ This project involves extracting, analyzing, and visualizing financial data from
 - Sort by Company & Year
 - Convert data types if needed
 
-#### 4. Financial Data Analysis:
+#### 3. Financial Data Analysis:
 - The cleaned data is loaded into a Jupyter Notebook for analysis.
 - Calculating growth rates (e.g., Revenue Growth, Net Income Growth).
 - Visualizing trends using libraries like Matplotlib.
 - Generating insights from the data.
 - The analysis produces insights (e.g., trends, comparisons) and visualizations (e.g., line plots, bar charts) and saves them into `analysis.html`.
 
-#### 5. AI-Powered Financial Chatbot:
+#### 4. AI-Powered Financial Chatbot:
 - The insights are integrated into a financial chatbot.
 - Provide insights to users.
 - Answer financial queries.
