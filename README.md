@@ -30,13 +30,25 @@ This project involves extracting, analyzing, and visualizing financial data from
 
 ## Getting Started
 
-### 1. Install Dependencies
+### 1. Clone the Repository
+```
+git clone https://github.com/MenakaGodakanda/financial-analysis.git
+cd financial-analysis
+```
+
+### 2. Set up a virtual environment:
+```
+python3 -m venv financial
+source financial/bin/activate
+```
+
+### 3. Install Dependencies
 First, install the required Python packages:
 ```
 pip install pandas matplotlib notebook flask
 ```
 
-### 2. Run Jupyter Notebook
+### 4. Run Jupyter Notebook
 Start Jupyter Notebook and open `analysis.ipynb`:
 ```
 jupyter notebook
@@ -57,6 +69,7 @@ import pandas as pd
 df = pd.read_csv('./data/financial_data.csv')
 print(df.columns)
 ```
+![Screenshot 2025-02-14 214443](https://github.com/user-attachments/assets/880e58eb-145a-40c8-bb6f-4a0715ddc367)
 
 ### 3. Convert Financial Figures to Numeric
 - In the dataset, financial figures can be stored as strings (likely due to commas in the numbers). 
@@ -88,6 +101,8 @@ df['Cash Flow Growth (%)'] = df.groupby('Company')['Cash Flow from Operating Act
 
 print(df)
 ```
+![Screenshot 2025-02-13 225846](https://github.com/user-attachments/assets/d9ff729b-ad67-4454-be01-3319d5907c2d)
+![Screenshot 2025-02-13 225852](https://github.com/user-attachments/assets/d5f48b09-2229-45f4-8516-ad39c20d1753)
 
 #### Key Notes
 - **NaN Values**: The first year for each company will have NaN values for the growth rates because there is no previous year to compare to.
@@ -110,6 +125,7 @@ plt.legend()
 plt.grid(True)
 plt.show()
 ```
+![Screenshot 2025-02-14 214605](https://github.com/user-attachments/assets/4321f9db-d90a-482d-901d-8bdc18f4dfd7)
 
 ### 6. Average Growth Rate Calculation
 - Computed the average growth rate for each financial metric:
@@ -118,6 +134,7 @@ plt.show()
 avg_growth = df.groupby('Company')[['Revenue Growth (%)', 'Net Income Growth (%)', 'Assets Growth (%)', 'Liabilities Growth (%)', 'Cash Flow Growth (%)']].mean()
 print(avg_growth)
 ```
+![Screenshot 2025-02-13 225943](https://github.com/user-attachments/assets/ba79c37a-d003-4d02-8c40-89d8d434806d)
 
 ## Financial Analysis Chatbot
 ### Features 
@@ -136,6 +153,9 @@ print(avg_growth)
 python chatbot.py
 ```
 - Enter one of the predefined queries when prompted. Type `exit` to quit.
+![Screenshot 2025-02-13 230322](https://github.com/user-attachments/assets/2a743269-fa08-41a7-ae60-65b90757e1c3)
+![Screenshot 2025-02-13 230328](https://github.com/user-attachments/assets/56ef4653-e5d1-4136-8c1c-94f88ed0dbb6)
+![Screenshot 2025-02-13 230352](https://github.com/user-attachments/assets/b5b50507-d8c8-4b04-ace1-3a25e50a633b)
 
 ### Web Interface (Flask)
 - Navigate to the project directory in your terminal.
@@ -143,6 +163,9 @@ python chatbot.py
 ```
 python app.py
 ```
+![Screenshot 2025-02-13 231759](https://github.com/user-attachments/assets/bce368bc-6159-4fb2-9ef7-0cb5afaf79d5)
+![Screenshot 2025-02-13 230925](https://github.com/user-attachments/assets/0dece177-0add-4fb0-bcd4-46b05e553fc1)
+
 - Open your browser or a tool like Postman and send a POST request to `http://127.0.0.1:5000/chatbot` with a JSON payload.
 - Open a new terminal window and use the following `curl` command to send a POST request to the `/chatbot` endpoints:
 ```
@@ -151,13 +174,15 @@ curl -X POST http://127.0.0.1:5000/chatbot \
 -d '{"query": "What is Apple’s revenue trend over the past two years?"}'
 ```
 - The chatbot will return a JSON response with the answer.
+![Screenshot 2025-02-13 232146](https://github.com/user-attachments/assets/942c19e1-e56f-494b-b65d-8737f751ac2e)
+![Screenshot 2025-02-13 232150](https://github.com/user-attachments/assets/0c382d90-6dd9-4dff-9a99-6fa069a350c3)
 
 #### Key Notes
-The apostrophe (’) removed from the the queries and responses because JSON responses prints out apostrophe (’) as `\u2019` which is simply a Unicode representation of the apostrophe (’).
+- The apostrophe (’) removed from the the queries and responses because JSON responses prints out apostrophe (’) as `\u2019` which is simply a Unicode representation of the apostrophe (’).
 
 ## Project Structure
 ```
-financial-data-analysis/
+financial-analysis/
 ├── financial-chatbot/
 │   ├── chatbot.py              # Command-line chatbot script
 │   ├── app.py                  # Flask web app for the chatbot
